@@ -5,47 +5,47 @@ import java.util.List;
 
 public class PetriNet implements IPetriNet{
 
-    private List<Arc> Arcs = new ArrayList<>();
-    private List<Place> Places = new ArrayList<>();
-    private List<Transition> Transitions = new ArrayList<>();
+    private List<Arc> arcs;
+    private List<Place> places;
+    private List<Transition> transitions;
 
     public PetriNet() {
     }
 
     public PetriNet(List<Arc> arcs, List<Place> places, List<Transition> transitions) {
-        Arcs = arcs;
-        Transitions = transitions;
-        Places = places;
+        this.arcs = arcs;
+        this.transitions = transitions;
+        this.places = places;
     }
 
     @Override
     public void Ajouter_arc(Arc arc) {
-        Arcs.add(arc);
+        this.arcs.add(arc);
     }
 
     @Override
     public void Ajouter_place(Place place) {
-        Places.add(place);
+        this.places.add(place);
     }
 
     @Override
     public void Ajouter_transition(Transition transition) {
-        Transitions.add(transition);
+        this.transitions.add(transition);
     }
 
     @Override
     public void Supprimer_arc(Arc arc) {
-        Arcs.remove(arc);
+        this.arcs.remove(arc);
     }
 
     @Override
     public void Supprimer_transition(Transition transition) {
-        Transitions.remove(transition);
+        this.transitions.remove(transition);
     }
 
     @Override
     public void Supprimer_place(Place place) {
-        Places.remove(place);
+        this.places.remove(place);
     }
 
     @Override

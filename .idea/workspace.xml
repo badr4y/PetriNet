@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="379067df-7744-4947-b443-8c40271a02ac" name="Changes" comment="implementation de PetriNet et son interface">
+    <list default="true" id="379067df-7744-4947-b443-8c40271a02ac" name="Changes" comment="Modification de PetriNet">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Transition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +39,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -53,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697029164706</updated>
-      <workItem from="1697029165824" duration="4712000" />
+      <workItem from="1697029165824" duration="7427000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -87,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697034848655</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Modification de PetriNet">
+      <option name="closed" value="true" />
+      <created>1697035113079</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697035113079</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +121,7 @@
     <MESSAGE value="classes and interface defined" />
     <MESSAGE value="implementation des classes Arc et Arc videur" />
     <MESSAGE value="implementation de PetriNet et son interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementation de PetriNet et son interface" />
+    <MESSAGE value="Modification de PetriNet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification de PetriNet" />
   </component>
 </project>
