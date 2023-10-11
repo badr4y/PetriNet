@@ -5,9 +5,18 @@ import java.util.List;
 
 public class PetriNet implements IPetriNet{
 
-    List<Arc> Arcs = new ArrayList<>();
-    List<Place> Places = new ArrayList<>();
-    List<Transition> Transitions = new ArrayList<>();
+    private List<Arc> Arcs = new ArrayList<>();
+    private List<Place> Places = new ArrayList<>();
+    private List<Transition> Transitions = new ArrayList<>();
+
+    public PetriNet() {
+    }
+
+    public PetriNet(List<Arc> arcs, List<Place> places, List<Transition> transitions) {
+        Arcs = arcs;
+        Transitions = transitions;
+        Places = places;
+    }
 
     @Override
     public void Ajouter_arc(Arc arc) {
