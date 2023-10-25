@@ -24,6 +24,8 @@ public class Transition {
 
 	public void Activer() {
 		boolean tirable = true;
+
+		// Vérifier si tous les arcs entrants sont tirables
 		for (int i=0; i<arcs_entrant.size(); i++) {
 			if (!this.arcs_entrant.get(i).Tirable()) {
 				tirable = false;
@@ -31,9 +33,11 @@ public class Transition {
 			}
 		}
 		if (tirable) {
+			// Si tous les arcs entrants sont tirables, retirer les jetons des arcs entrants
 			for (int i = 0; i < arcs_entrant.size(); i++) {
 				arcs_entrant.get(i).Retirer_jetons();
 			}
+			// Ajouter des jetons aux arcs sortants
 			for (int i = 0; i < arcs_sortant.size(); i++) {
 				arcs_sortant.get(i).Ajouter_jetons();
 			}

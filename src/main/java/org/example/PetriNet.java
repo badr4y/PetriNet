@@ -50,10 +50,8 @@ public class PetriNet implements IPetriNet{
 
     @Override
     public void Fire(Transition transition) {
+        // Activation de la transition lorsqu'elle est déclenchée
         transition.Activer();
     }
 
-    public static void main(String[] args) {
-
-    }
 }
