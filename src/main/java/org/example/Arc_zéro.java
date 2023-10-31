@@ -13,5 +13,8 @@ public class Arc_zéro extends Arc{
 		// Un Arc Zéro est tirable si la place associée n'a aucun jeton
 		return place.getNb_Jetons() ==0;
 	}
-	
+
+	@Override
+	public void Retirer_jetons() {
+	}
 }
