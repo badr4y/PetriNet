@@ -21,6 +21,25 @@ public class TransitionTest {
     }
 
     @Test
+    public void testSetArcEntrant(){
+        Arc arc = new Arc();
+        ArrayList<Arc> arcs_entrant = new ArrayList<>();
+        arcs_entrant.add(arc);
+        transition.setArcs_entrant(arcs_entrant);
+        assertNotNull(transition.getArcs_entrant());
+    }
+
+    @Test
+    public void testSetArcSortant(){
+        Arc arc = new Arc();
+        ArrayList<Arc> arcs_sortant = new ArrayList<>();
+        arcs_sortant.add(arc);
+        transition.setArcs_entrant(arcs_sortant);
+        assertNotNull(transition.getArcs_sortant());
+    }
+
+
+    @Test
     public void testParameterizedConstructor() {
         ArrayList<Arc> arcsEntrant = new ArrayList<>();
         arcsEntrant.add(new Arc(2, new Place(3), transition));

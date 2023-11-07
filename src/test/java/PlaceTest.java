@@ -1,4 +1,3 @@
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +13,12 @@ public class PlaceTest {
     @Test
     public void testConstructor() {
         assertNotNull(place);
+    }
+
+    @Test
+    public void testModifierJetonsAvecNombreNegatif() {
+        place.Modifier_jetons(-5);
+        assertEquals(0, place.getNb_Jetons());
     }
 
     @Test

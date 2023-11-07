@@ -16,6 +16,7 @@ public class ArcTest {
 
     @Test
     public void testConstructor() {
+        assertNotNull(arc);
         assertEquals(3, arc.getPoids(), "Constructor should set the weight of the Arc.");
     }
 
@@ -24,6 +25,7 @@ public class ArcTest {
         arc.Modifier_poids(4); // Modify the weight of the Arc to 4.
         assertEquals(4, arc.getPoids(), "Modifier_poids should update the weight of the Arc.");
     }
+
 
     @Test
     public void testTirableWhenTrue() {

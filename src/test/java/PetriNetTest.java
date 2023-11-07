@@ -26,7 +26,7 @@ public class PetriNetTest {
     }
 
     @Test
-    public void testAjouterArc() {
+    public void testAjouterArcLinkedToPlaceAndTransitionNotAddedToPetriNetPlacesAndTransitionsRecords() {
         Transition transition = new Transition();
         Place place = new Place(2);
 

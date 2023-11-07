@@ -7,7 +7,11 @@ public class Arc {
     }
 
     public Arc(int poids, Place place, Transition transition) {
-        this.poids = poids;
+        if (poids<0){
+            this.poids = 0;
+        }else{
+            this.poids = poids;
+        }
         this.transition = transition;
         this.place= place;
     }
