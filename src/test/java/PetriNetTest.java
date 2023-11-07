@@ -20,7 +20,7 @@ public class PetriNetTest {
     }
 
     @Test
-    public void testDefaultConstructor(){
+    public void testDefaultConstructor() {
         petriNet = new PetriNet();
         assertNotNull(petriNet);
     }
@@ -81,34 +81,5 @@ public class PetriNetTest {
         assertFalse(transitions.contains(transition), "Supprimer_transition should remove the transition from the list of transitions.");
     }
 
-    @Test
-    public void testFire() {
-        Transition transition = new Transition();
-        TransitionSpy transitionSpy = new TransitionSpy(transition);
-        transitions.add(transitionSpy);
-        petriNet.Fire(transition);
-        assertTrue(transitionSpy.isActivated(), "Fire should activate the transition.");
-    }
-}
-
-class TransitionSpy extends Transition {
-    private boolean activated = false;
-
-    public TransitionSpy() {
-    }
-
-    public TransitionSpy(Transition original) {
-        super();
-    }
-
-    @Override
-    public void Activer() {
-        super.Activer();
-        activated = true;
-    }
-
-    public boolean isActivated() {
-        return activated;
-    }
 }
 

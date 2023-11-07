@@ -17,13 +17,15 @@ public class PetriNet implements IPetriNet {
 
     @Override
     public void Ajouter_arc(Arc arc) {
-        this.arcs.add(arc);
-        if (arc.getTransition() != null && !this.transitions.contains(arc.getTransition())) {
-            this.transitions.add(arc.getTransition());
-        }
+        if (!this.places.contains(arc.getPlace())) {
+            this.arcs.add(arc);
+            if (arc.getTransition() != null && !this.transitions.contains(arc.getTransition())) {
+                this.transitions.add(arc.getTransition());
+            }
 
-        if (arc.getPlace() != null && !this.places.contains(arc.getPlace())) {
-            this.places.add(arc.getPlace());
+            if (arc.getPlace() != null && !this.places.contains(arc.getPlace())) {
+                this.places.add(arc.getPlace());
+            }
         }
     }
 
