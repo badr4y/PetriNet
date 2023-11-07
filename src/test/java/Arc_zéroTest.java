@@ -15,6 +15,17 @@ public class Arc_zéroTest {
     }
 
     @Test
+    public void testDefaultConstructor() {
+        arcZero = new Arc_zéro();
+        assertNotNull(arcZero);
+    }
+
+    @Test
+    public void testParametrizedConstructor() {
+        assertNotNull(arcZero);
+    }
+
+    @Test
     public void testTirableWhenPlaceIsEmpty() {
         assertTrue(arcZero.Tirable(), "Arc_zero should be tirable when the associated place is empty.");
     }

@@ -1,4 +1,6 @@
 public class Arc_zéro extends Arc {
+
+	public Arc_zéro(){}
 	
 	public Arc_zéro(Place place, Transition transition) {
 		this.place=place;

@@ -16,9 +16,9 @@ public class PlaceTest {
     }
 
     @Test
-    public void testModifierJetonsAvecNombreNegatif() {
-        place.Modifier_jetons(-5);
-        assertEquals(0, place.getNb_Jetons());
+    public void testGetNbJetons() {
+        int tokens = place.getNb_Jetons();
+        assertEquals(5, tokens, "getNb_Jetons should return the current number of tokens.");
     }
 
     @Test
@@ -28,14 +28,16 @@ public class PlaceTest {
     }
 
     @Test
+    public void testModifierJetonsAvecNombreNegatif() {
+        place.Modifier_jetons(-5);
+        assertEquals(0, place.getNb_Jetons());
+    }
+
+    @Test
     public void testSetNbJetons() {
         place.setNb_Jetons(7); // Set the number of tokens to 7.
         assertEquals(7, place.getNb_Jetons(), "setNbJetons should set the number of tokens.");
     }
 
-    @Test
-    public void testGetNbJetons() {
-        int tokens = place.getNb_Jetons();
-        assertEquals(5, tokens, "getNb_Jetons should return the current number of tokens.");
-    }
+
 }

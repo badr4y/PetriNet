@@ -15,6 +15,19 @@ public class Arc_videurTest {
     }
 
     @Test
+    public void testDefaultConstructor(){
+        arcVideur = new Arc_videur();
+        assertNotNull(arcVideur);
+    }
+
+    @Test
+    public void testParametrizedConstructor(){
+        assertNotNull(arcVideur);
+        assertNotNull(arcVideur.getTransition());
+        assertNotNull(arcVideur.getPlace());
+    }
+
+    @Test
     public void testTirableWhenPlaceHasTokens() {
         assertTrue(arcVideur.Tirable(), "Arc_videur should be tirable when the associated place has tokens.");
     }

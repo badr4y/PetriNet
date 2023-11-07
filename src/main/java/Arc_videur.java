@@ -5,6 +5,9 @@ public class Arc_videur extends Arc {
         this.transition = transition;
     }
 
+    public Arc_videur() {
+    }
+
     // Redéfinition de la méthode Tirable pour un Arc_videur
     @Override
     public boolean Tirable() {
