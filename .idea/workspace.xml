@@ -4,18 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="379067df-7744-4947-b443-8c40271a02ac" name="Changes" comment="Implementation de la methode Activer de transition">
-      <change afterPath="$PROJECT_DIR$/.idea/$PROJECT_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/qaplug_profiles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="379067df-7744-4947-b443-8c40271a02ac" name="Changes" comment="Added comments">
+      <change afterPath="$PROJECT_DIR$/src/test/java/ArcTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Arc_videurTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Arc_zéroTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PetriNetTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PlaceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TransitionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Arc_videur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Arc_videur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Arc_zéro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Arc_zéro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/IPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/IPetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Transition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Arc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Arc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Arc_videur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Arc_videur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Arc_zéro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Arc_zéro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/IPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IPetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Transition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +32,8 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -37,31 +44,169 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2WcQ0ATsmwXS7R7mxJJRp1Wdp1L" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/HP/Desktop/IMT/PetriNet/src/test/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\IMT\PetriNet\src" />
+      <recent name="C:\Users\HP\Desktop\IMT\PetriNet\src\main\java\org\example" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.AllTests">
+    <configuration name="AllTests" type="JUnit" factoryName="JUnit">
+      <module name="PetriNet" />
+      <extension name="coverage" runner="jacoco">
+        <pattern>
+          <option name="PATTERN" value="Arc" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="Arc_videur" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="Arc_zéro" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="PetriNet" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="Place" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="Transition" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArcTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PetriNet" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ArcTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Arc_videurTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PetriNet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Arc_videur" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Arc_videurTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Arc_zéroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PetriNet" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Arc_zéroTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlaceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PetriNet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Place" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlaceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransitionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PetriNet" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TransitionTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.AllTests" />
+      <item itemvalue="JUnit.ArcTest" />
+      <item itemvalue="JUnit.TransitionTest" />
+      <item itemvalue="JUnit.PlaceTest" />
+      <item itemvalue="JUnit.Arc_videurTest" />
+      <item itemvalue="JUnit.Arc_zéroTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Arc_videurTest" />
+        <item itemvalue="JUnit.TransitionTest" />
+        <item itemvalue="JUnit.PlaceTest" />
+        <item itemvalue="JUnit.ArcTest" />
+        <item itemvalue="JUnit.Arc_zéroTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -75,7 +220,11 @@
       <workItem from="1698160192395" duration="1125000" />
       <workItem from="1698218036418" duration="596000" />
       <workItem from="1698219928910" duration="184000" />
-      <workItem from="1698228332138" duration="1098000" />
+      <workItem from="1698228332138" duration="1717000" />
+      <workItem from="1698767780236" duration="787000" />
+      <workItem from="1699310822296" duration="2220000" />
+      <workItem from="1699313057304" duration="258000" />
+      <workItem from="1699313428069" duration="4468000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -125,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697038210879</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added comments">
+      <option name="closed" value="true" />
+      <created>1698229514887</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698229514887</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,12 +312,44 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="classes and interface defined" />
     <MESSAGE value="implementation des classes Arc et Arc videur" />
     <MESSAGE value="implementation de PetriNet et son interface" />
     <MESSAGE value="Modification de PetriNet" />
     <MESSAGE value="Implementation de la methode Activer de transition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation de la methode Activer de transition" />
+    <MESSAGE value="Added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added comments" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ArcTest.java</url>
+          <line>4</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PetriNet$Arc_zéroTest.ic" NAME="Arc_zéroTest Coverage Results" MODIFIED="1699342995750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/PetriNet$PlaceTest.ic" NAME="PlaceTest Coverage Results" MODIFIED="1699342952606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Place</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PetriNet$TransitionTest.ic" NAME="TransitionTest Coverage Results" MODIFIED="1699343085736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/PetriNet$Arc_videurTest.ic" NAME="Arc_videurTest Coverage Results" MODIFIED="1699343018613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Arc_videur</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PetriNet$ArcTest.ic" NAME="ArcTest Coverage Results" MODIFIED="1699343619075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/PetriNet$AllTests.ic" NAME="AllTests Coverage Results" MODIFIED="1699343660076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Arc</FILTER>
+      <FILTER>Arc_videur</FILTER>
+      <FILTER>Arc_zéro</FILTER>
+      <FILTER>PetriNet</FILTER>
+      <FILTER>Place</FILTER>
+      <FILTER>Transition</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,5 +1,3 @@
-package org.example;
-
 public interface IPetriNet {
     void Ajouter_arc(Arc arc);
     void Ajouter_place(Place place);

@@ -1,5 +1,3 @@
-package org.example;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +10,14 @@ public class Transition {
 	public Transition(ArrayList<Arc> arcs_entrant, ArrayList<Arc> arcs_sortant) {
 		 this.arcs_entrant = arcs_entrant;
 	     this.arcs_sortant = arcs_sortant;
+	}
+
+	public List<Arc> getArcs_entrant() {
+		return arcs_entrant;
+	}
+
+	public List<Arc> getArcs_sortant() {
+		return arcs_sortant;
 	}
 
 	public void setArcs_entrant(ArrayList<Arc> arcs_entrant) {

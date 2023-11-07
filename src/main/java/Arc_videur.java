@@ -1,6 +1,4 @@
-package org.example;
-
-public class Arc_videur extends Arc{
+public class Arc_videur extends Arc {
 
     public Arc_videur(Place place, Transition transition) {
         this.place = place;

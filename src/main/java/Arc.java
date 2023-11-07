@@ -1,5 +1,3 @@
-package org.example;
-
 public class Arc {
     private int poids;
     protected Place place;
@@ -14,8 +12,16 @@ public class Arc {
         this.place= place;
     }
 
+    public Transition getTransition() {
+        return transition;
+    }
+
     public int getPoids() {
         return poids;
+    }
+
+    public Place getPlace() {
+        return place;
     }
 
     public void Modifier_poids(int n) {
@@ -23,7 +29,7 @@ public class Arc {
     }
 
     public boolean Tirable() {
-        return place.getNb_Jetons() <= poids;
+        return place.getNb_Jetons() >= poids;
     }
 
     public void Ajouter_jetons() {

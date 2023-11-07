@@ -1,6 +1,4 @@
-package org.example;
-
-public class Arc_zéro extends Arc{
+public class Arc_zéro extends Arc {
 	
 	public Arc_zéro(Place place, Transition transition) {
 		this.place=place;
