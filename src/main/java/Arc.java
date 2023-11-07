@@ -41,7 +41,11 @@ public class Arc {
     }
 
     public void Retirer_jetons() {
-        place.setNb_Jetons(place.getNb_Jetons()-poids);
+        if(place.getNb_Jetons()<poids) {
+            place.setNb_Jetons(0);
+        }else{
+            place.setNb_Jetons(place.getNb_Jetons()-poids);
+        }
     }
 
 

@@ -66,7 +66,6 @@ public class TransitionTest {
         transition.Activer();
     }
 
-
     @Test
     public void testActiver1() {
         ArrayList<Arc> arcsEntrant = new ArrayList<>();
@@ -83,6 +82,9 @@ public class TransitionTest {
         assertEquals(2, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
         assertEquals(2, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the outgoing arc.");
     }
+
+
+
     @Test
     public void testActiver2() {
         ArrayList<Arc> arcsEntrant = new ArrayList<>();
@@ -168,6 +170,7 @@ public class TransitionTest {
         assertEquals(0, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should change tokens in the outgoing arc.");
     }
 
+
     @Test
     public void testActiverWhenAllTirable() {
         List<Arc> arcsEntrant = new ArrayList<>();
@@ -205,6 +208,25 @@ public class TransitionTest {
         assertEquals(2, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
         assertEquals(5, arcsEntrant.get(1).getPlace().getNb_Jetons(), "Activer should not change tokens in the second incoming arc.");
         assertEquals(0, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the outgoing arc.");
+    }
+
+    @Test
+    public void testActiverAvecArcDoublésDePoidsCombinésSupérieursAuxJetons() {
+        ArrayList<Arc> arcsEntrant = new ArrayList<>();
+        Place place = new Place(3);
+        arcsEntrant.add(new Arc(2, place, transition));
+        arcsEntrant.add(new Arc(2, place, transition));
+
+        ArrayList<Arc> arcsSortant = new ArrayList<>();
+        arcsSortant.add(new Arc(2, new Place(0), transition));
+
+        transition.setArcs_entrant(arcsEntrant);
+        transition.setArcs_sortant(arcsSortant);
+
+        transition.Activer();
+
+        assertEquals(0, arcsEntrant.get(0).getPlace().getNb_Jetons());
+        assertEquals(2, arcsSortant.get(0).getPlace().getNb_Jetons());
     }
 
 
