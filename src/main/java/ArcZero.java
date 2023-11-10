@@ -1,20 +1,20 @@
-public class Arc_zéro extends Arc {
+public class ArcZero extends Arc {
 
-	public Arc_zéro(){}
+	public ArcZero(){}
 	
-	public Arc_zéro(Place place, Transition transition) {
+	public ArcZero(Place place, Transition transition) {
 		this.place=place;
 		this.transition=transition;
 	}
 
 	// Redéfinition de la méthode Tirable pour un Arc Zéro
 	@Override
-	public boolean Tirable() {
+	public boolean drawable() {
 		// Un Arc Zéro est tirable si la place associée n'a aucun jeton
-		return place.getNb_Jetons() ==0;
+		return place.getTokens() ==0;
 	}
 
 	@Override
-	public void Retirer_jetons() {
+	public void retrieveTokens() {
 	}
 }

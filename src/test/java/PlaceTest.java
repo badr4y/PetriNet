@@ -16,27 +16,27 @@ public class PlaceTest {
     }
 
     @Test
-    public void testGetNbJetons() {
-        int tokens = place.getNb_Jetons();
+    public void testGetTokens() {
+        int tokens = place.getTokens();
         assertEquals(5, tokens, "getNb_Jetons should return the current number of tokens.");
     }
 
     @Test
-    public void testModifierJetons() {
-        place.Modifier_jetons(10); // Modify the number of tokens to 10.
-        assertEquals(10, place.getNb_Jetons(), "Modifier_jetons should update the number of tokens.");
+    public void testChangeTokens() {
+        place.changeTokens(10); // Modify the number of tokens to 10.
+        assertEquals(10, place.getTokens(), "Modifier_jetons should update the number of tokens.");
     }
 
     @Test
-    public void testModifierJetonsAvecNombreNegatif() {
-        place.Modifier_jetons(-5);
-        assertEquals(0, place.getNb_Jetons());
+    public void testChangeTokensWithNegativeNumber() {
+        place.changeTokens(-5);
+        assertEquals(0, place.getTokens());
     }
 
     @Test
-    public void testSetNbJetons() {
-        place.setNb_Jetons(7); // Set the number of tokens to 7.
-        assertEquals(7, place.getNb_Jetons(), "setNbJetons should set the number of tokens.");
+    public void testSetTokens() {
+        place.setTokens(7); // Set the number of tokens to 7.
+        assertEquals(7, place.getTokens(), "setNbJetons should set the number of tokens.");
     }
 
 

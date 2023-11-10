@@ -16,7 +16,7 @@ public class PetriNet implements IPetriNet {
     }
 
     @Override
-    public void Ajouter_arc(Arc arc) {
+    public void addArc(Arc arc) {
             this.arcs.add(arc);
             if (arc.getTransition() != null && !this.transitions.contains(arc.getTransition())) {
                 this.transitions.add(arc.getTransition());
@@ -28,34 +28,34 @@ public class PetriNet implements IPetriNet {
     }
 
     @Override
-    public void Ajouter_place(Place place) {
+    public void addPlace(Place place) {
         this.places.add(place);
     }
 
     @Override
-    public void Ajouter_transition(Transition transition) {
+    public void addTransition(Transition transition) {
         this.transitions.add(transition);
     }
 
     @Override
-    public void Supprimer_arc(Arc arc) {
+    public void deleteArc(Arc arc) {
         this.arcs.remove(arc);
     }
 
     @Override
-    public void Supprimer_transition(Transition transition) {
+    public void deleteTransition(Transition transition) {
         this.transitions.remove(transition);
     }
 
     @Override
-    public void Supprimer_place(Place place) {
+    public void deletePlace(Place place) {
         this.places.remove(place);
     }
 
     @Override
-    public void Fire(Transition transition) {
+    public void fire(Transition transition) {
         // Activation de la transition lorsqu'elle est déclenchée
-        transition.Activer();
+        transition.activate();
     }
 
 }

@@ -1,16 +1,16 @@
 public class Arc {
-    private int poids;
+    private int weight;
     protected Place place;
     protected Transition transition;
 
     public Arc() {
     }
 
-    public Arc(int poids, Place place, Transition transition) {
-        if (poids<0){
-            this.poids = 0;
+    public Arc(int weight, Place place, Transition transition) {
+        if (weight <0){
+            this.weight = 0;
         }else{
-            this.poids = poids;
+            this.weight = weight;
         }
         this.transition = transition;
         this.place= place;
@@ -20,31 +20,31 @@ public class Arc {
         return transition;
     }
 
-    public int getPoids() {
-        return poids;
+    public int getWeight() {
+        return weight;
     }
 
     public Place getPlace() {
         return place;
     }
 
-    public void Modifier_poids(int n) {
-        this.poids = n;
+    public void changeWeight(int n) {
+        this.weight = n;
     }
 
-    public boolean Tirable() {
-        return place.getNb_Jetons() >= poids;
+    public boolean drawable() {
+        return place.getTokens() >= weight;
     }
 
-    public void Ajouter_jetons() {
-        place.setNb_Jetons(place.getNb_Jetons()+poids);
+    public void addTokens() {
+        place.setTokens(place.getTokens()+ weight);
     }
 
-    public void Retirer_jetons() {
-        if(place.getNb_Jetons()<poids) {
-            place.setNb_Jetons(0);
+    public void retrieveTokens() {
+        if(place.getTokens()< weight) {
+            place.setTokens(0);
         }else{
-            place.setNb_Jetons(place.getNb_Jetons()-poids);
+            place.setTokens(place.getTokens()- weight);
         }
     }
 

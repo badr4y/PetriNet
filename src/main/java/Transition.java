@@ -2,50 +2,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Transition {
-	private List<Arc> arcs_entrant;
-	private List<Arc> arcs_sortant;
+	private List<Arc> enteringArcs;
+	private List<Arc> exitingArcs;
 	
 	public Transition() {
 	}
-	public Transition(ArrayList<Arc> arcs_entrant, ArrayList<Arc> arcs_sortant) {
-		 this.arcs_entrant = arcs_entrant;
-	     this.arcs_sortant = arcs_sortant;
+	public Transition(ArrayList<Arc> enteringArcs, ArrayList<Arc> exitingArcs) {
+		 this.enteringArcs = enteringArcs;
+	     this.exitingArcs = exitingArcs;
 	}
 
-	public List<Arc> getArcs_entrant() {
-		return arcs_entrant;
+	public List<Arc> getEnteringArcs() {
+		return enteringArcs;
 	}
 
-	public List<Arc> getArcs_sortant() {
-		return arcs_sortant;
+	public List<Arc> getExitingArcs() {
+		return exitingArcs;
 	}
 
-	public void setArcs_entrant(ArrayList<Arc> arcs_entrant) {
-		this.arcs_entrant = arcs_entrant;
+	public void setEnteringArcs(ArrayList<Arc> enteringArcs) {
+		this.enteringArcs = enteringArcs;
 	}
 
-	public void setArcs_sortant(ArrayList<Arc> arcs_sortant) {
-		this.arcs_sortant = arcs_sortant;
+	public void setExitingArcs(ArrayList<Arc> exitingArcs) {
+		this.exitingArcs = exitingArcs;
 	}
 
-	public void Activer() {
-		boolean tirable = true;
+	public void activate() {
+		boolean drawable = true;
 
 		// Vérifier si tous les arcs entrants sont tirables
-		for (int i=0; i<arcs_entrant.size(); i++) {
-			if (!this.arcs_entrant.get(i).Tirable()) {
-				tirable = false;
+		for (int i = 0; i< enteringArcs.size(); i++) {
+			if (!this.enteringArcs.get(i).drawable()) {
+				drawable = false;
 				break;
 			}
 		}
-		if (tirable) {
+		if (drawable) {
 			// Si tous les arcs entrants sont tirables, retirer les jetons des arcs entrants
-			for (int i = 0; i < arcs_entrant.size(); i++) {
-				arcs_entrant.get(i).Retirer_jetons();
+			for (int i = 0; i < enteringArcs.size(); i++) {
+				enteringArcs.get(i).retrieveTokens();
 			}
 			// Ajouter des jetons aux arcs sortants
-			for (int i = 0; i < arcs_sortant.size(); i++) {
-				arcs_sortant.get(i).Ajouter_jetons();
+			for (int i = 0; i < exitingArcs.size(); i++) {
+				exitingArcs.get(i).addTokens();
 			}
 		}
 	}

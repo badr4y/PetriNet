@@ -1,14 +1,14 @@
 public interface IPetriNet {
-    void Ajouter_arc(Arc arc);
-    void Ajouter_place(Place place);
-    void Ajouter_transition(Transition transition);
+    void addArc(Arc arc);
+    void addPlace(Place place);
+    void addTransition(Transition transition);
 
-    void Supprimer_arc(Arc arc);
-    void Supprimer_transition(Transition transition);
-    void Supprimer_place(Place place);
+    void deleteArc(Arc arc);
+    void deleteTransition(Transition transition);
+    void deletePlace(Place place);
 
     // Méthode pour déclencher une transition dans le réseau de Petri
-    void Fire(Transition transition);
+    void fire(Transition transition);
 
 
 }

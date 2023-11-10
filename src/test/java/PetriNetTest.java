@@ -31,7 +31,7 @@ public class PetriNetTest {
         Place place = new Place(2);
 
         Arc arc = new Arc(2, place, transition);
-        petriNet.Ajouter_arc(arc);
+        petriNet.addArc(arc);
 
         assertTrue(arcs.contains(arc), "Ajouter_arc should add the arc to the list of arcs.");
         assertTrue(transitions.contains(transition), "Ajouter_arc should add the transition to the list of transitions.");
@@ -39,45 +39,45 @@ public class PetriNetTest {
     }
 
     @Test
-    public void testAjouterPlace() {
+    public void testAddPlace() {
         Place place = new Place(2);
-        petriNet.Ajouter_place(place);
+        petriNet.addPlace(place);
         assertTrue(places.contains(place), "Ajouter_place should add the place to the list of places.");
     }
 
     @Test
-    public void testAjouterTransition() {
+    public void testAddTransition() {
         Transition transition = new Transition();
-        petriNet.Ajouter_transition(transition);
+        petriNet.addTransition(transition);
         assertTrue(transitions.contains(transition), "Ajouter_transition should add the transition to the list of transitions.");
     }
 
     @Test
-    public void testSupprimerArc() {
+    public void testDeleteArc() {
         Transition transition = new Transition();
         Place place = new Place(2);
         Arc arc = new Arc(2, place, transition);
-        petriNet.Ajouter_arc(arc);
+        petriNet.addArc(arc);
 
-        petriNet.Supprimer_arc(arc);
+        petriNet.deleteArc(arc);
         assertFalse(arcs.contains(arc), "Supprimer_arc should remove the arc from the list of arcs.");
         assertTrue(transitions.contains(transition), "Supprimer_arc should not remove the transition from the list of transitions.");
         assertTrue(places.contains(place), "Supprimer_arc should not remove the place from the list of places.");
     }
 
     @Test
-    public void testSupprimerPlace() {
+    public void testDeletePlace() {
         Place place = new Place(2);
         places.add(place);
-        petriNet.Supprimer_place(place);
+        petriNet.deletePlace(place);
         assertFalse(places.contains(place), "Supprimer_place should remove the place from the list of places.");
     }
 
     @Test
-    public void testSupprimerTransition() {
+    public void testDeleteTransition() {
         Transition transition = new Transition();
         transitions.add(transition);
-        petriNet.Supprimer_transition(transition);
+        petriNet.deleteTransition(transition);
         assertFalse(transitions.contains(transition), "Supprimer_transition should remove the transition from the list of transitions.");
     }
 

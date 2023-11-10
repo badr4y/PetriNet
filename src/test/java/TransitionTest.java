@@ -16,217 +16,217 @@ public class TransitionTest {
     @Test
     public void testDefaultConstructor() {
         assertNotNull(transition);
-        assertNull(transition.getArcs_entrant(), "Default constructor should set incoming arcs to null.");
-        assertNull(transition.getArcs_sortant(), "Default constructor should set outgoing arcs to null.");
+        assertNull(transition.getEnteringArcs(), "Default constructor should set incoming arcs to null.");
+        assertNull(transition.getExitingArcs(), "Default constructor should set outgoing arcs to null.");
     }
 
     @Test
-    public void testSetArcEntrant(){
+    public void testSetEnteringArcs(){
         Arc arc = new Arc();
         ArrayList<Arc> arcs_entrant = new ArrayList<>();
         arcs_entrant.add(arc);
-        transition.setArcs_entrant(arcs_entrant);
-        assertNotNull(transition.getArcs_entrant());
+        transition.setEnteringArcs(arcs_entrant);
+        assertNotNull(transition.getEnteringArcs());
     }
 
     @Test
-    public void testSetArcSortant(){
+    public void testSetExitingArcs(){
         Arc arc = new Arc();
-        ArrayList<Arc> arcs_sortant = new ArrayList<>();
-        arcs_sortant.add(arc);
-        transition.setArcs_entrant(arcs_sortant);
-        assertNotNull(transition.getArcs_sortant());
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(arc);
+        transition.setExitingArcs(exitingArcs);
+        assertNotNull(transition.getExitingArcs());
     }
 
 
     @Test
     public void testParameterizedConstructor() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc(2, new Place(3), transition));
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new Arc(2, new Place(3), transition));
         ArrayList<Arc> arcsSortant = new ArrayList<>();
         arcsSortant.add(new Arc(3, new Place(0), transition));
 
-        transition = new Transition(arcsEntrant, arcsSortant);
+        transition = new Transition(enteringArcs, arcsSortant);
         assertNotNull(transition);
-        assertEquals(arcsEntrant, transition.getArcs_entrant(), "Parameterized constructor should set incoming arcs.");
-        assertEquals(arcsSortant, transition.getArcs_sortant(), "Parameterized constructor should set outgoing arcs.");
+        assertEquals(enteringArcs, transition.getEnteringArcs(), "Parameterized constructor should set incoming arcs.");
+        assertEquals(arcsSortant, transition.getExitingArcs(), "Parameterized constructor should set outgoing arcs.");
     }
 
     @Test
-    public void testActiverForDefaultTransition() {
+    public void testActivateForDefaultTransition() {
         assertThrows(NullPointerException.class, () -> {
             // Call the Activer method on a null Transition object
-            transition.Activer();
+            transition.activate();
         });
     }
 
     @Test
-    public void testActiverWithEmptyArcLists() {
+    public void testActivateWithEmptyArcLists() {
         transition = new Transition(new ArrayList<Arc>(),new ArrayList<Arc>()) ;
-        transition.Activer();
+        transition.activate();
     }
 
     @Test
-    public void testActiver1() {
+    public void testActivateCase1() {
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new Arc(0, new Place(2), transition));
+
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(2, new Place(0), transition));
+
+        transition.setEnteringArcs(enteringArcs);
+        transition.setExitingArcs(exitingArcs);
+
+        transition.activate();
+
+        assertEquals(2, enteringArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the first incoming arc.");
+        assertEquals(2, exitingArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the outgoing arc.");
+    }
+
+
+
+    @Test
+    public void testActivateCase2() {
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new Arc(0, new Place(0), transition));
+
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(2, new Place(0), transition));
+
+        transition.setEnteringArcs(enteringArcs);
+        transition.setExitingArcs(exitingArcs);
+
+        transition.activate();
+
+        assertEquals(0, enteringArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the first incoming arc.");
+        assertEquals(2, exitingArcs.get(0).getPlace().getTokens(), "Activer should change tokens in the outgoing arc.");
+    }
+
+    @Test
+    public void testActivateCase3() {
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new ArcVideur(new Place(5), transition));
+
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(2, new Place(0), transition));
+
+        transition.setEnteringArcs(enteringArcs);
+        transition.setExitingArcs(exitingArcs);
+
+        transition.activate();
+
+        assertEquals(0, enteringArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the first incoming arc.");
+        assertEquals(2, exitingArcs.get(0).getPlace().getTokens(), "Activer should change tokens in the outgoing arc.");
+    }
+
+    @Test
+    public void testActivateCase4() {
         ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc(0, new Place(2), transition));
+        arcsEntrant.add(new ArcVideur(new Place(0), transition));
 
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(2, new Place(0), transition));
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(2, new Place(0), transition));
 
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
+        transition.setEnteringArcs(arcsEntrant);
+        transition.setExitingArcs(exitingArcs);
 
-        transition.Activer();
+        transition.activate();
 
-        assertEquals(2, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
-        assertEquals(2, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the outgoing arc.");
-    }
-
-
-
-    @Test
-    public void testActiver2() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc(0, new Place(0), transition));
-
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(2, new Place(0), transition));
-
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
-
-        transition.Activer();
-
-        assertEquals(0, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
-        assertEquals(2, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should change tokens in the outgoing arc.");
+        assertEquals(0, arcsEntrant.get(0).getPlace().getTokens(), "Activer should not change tokens in the first incoming arc.");
+        assertEquals(0, exitingArcs.get(0).getPlace().getTokens(), "Activer should change tokens in the outgoing arc.");
     }
 
     @Test
-    public void testActiver3() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc_videur(new Place(5), transition));
+    public void testActivateCase5() {
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new ArcZero(new Place(0), transition));
 
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(2, new Place(0), transition));
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(5, new Place(0), transition));
 
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
+        transition.setEnteringArcs(enteringArcs);
+        transition.setExitingArcs(exitingArcs);
 
-        transition.Activer();
+        transition.activate();
 
-        assertEquals(0, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
-        assertEquals(2, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should change tokens in the outgoing arc.");
+        assertEquals(0, enteringArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the first incoming arc.");
+        assertEquals(5, exitingArcs.get(0).getPlace().getTokens(), "Activer should change tokens in the outgoing arc.");
     }
 
     @Test
-    public void testActiver4() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc_videur(new Place(0), transition));
+    public void testActivateCase6() {
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new ArcZero(new Place(4), transition));
 
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(2, new Place(0), transition));
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(5, new Place(0), transition));
 
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
+        transition.setEnteringArcs(enteringArcs);
+        transition.setExitingArcs(exitingArcs);
 
-        transition.Activer();
+        transition.activate();
 
-        assertEquals(0, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
-        assertEquals(0, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should change tokens in the outgoing arc.");
-    }
-
-    @Test
-    public void testActiver5() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc_zéro(new Place(0), transition));
-
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(5, new Place(0), transition));
-
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
-
-        transition.Activer();
-
-        assertEquals(0, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
-        assertEquals(5, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should change tokens in the outgoing arc.");
-    }
-
-    @Test
-    public void testActiver6() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc_zéro(new Place(4), transition));
-
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(5, new Place(0), transition));
-
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
-
-        transition.Activer();
-
-        assertEquals(4, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
-        assertEquals(0, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should change tokens in the outgoing arc.");
+        assertEquals(4, enteringArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the first incoming arc.");
+        assertEquals(0, exitingArcs.get(0).getPlace().getTokens(), "Activer should change tokens in the outgoing arc.");
     }
 
 
     @Test
-    public void testActiverWhenAllTirable() {
-        List<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc(2, new Place(3), transition));
-        arcsEntrant.add(new Arc(1, new Place(4), transition));
+    public void testActivateWhenAllTirable() {
+        List<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new Arc(2, new Place(3), transition));
+        enteringArcs.add(new Arc(1, new Place(4), transition));
 
-        List<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(3, new Place(0), transition));
+        List<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(3, new Place(0), transition));
 
-        transition.setArcs_entrant((ArrayList<Arc>) arcsEntrant);
-        transition.setArcs_sortant((ArrayList<Arc>) arcsSortant);
+        transition.setEnteringArcs((ArrayList<Arc>) enteringArcs);
+        transition.setExitingArcs((ArrayList<Arc>) exitingArcs);
 
-        transition.Activer();
+        transition.activate();
 
-        assertEquals(1, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should have reduced tokens in the first incoming arc.");
-        assertEquals(3, arcsEntrant.get(1).getPlace().getNb_Jetons(), "Activer should have reduced tokens in the second incoming arc.");
-        assertEquals(3, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should have added tokens to the outgoing arc.");
+        assertEquals(1, enteringArcs.get(0).getPlace().getTokens(), "Activer should have reduced tokens in the first incoming arc.");
+        assertEquals(3, enteringArcs.get(1).getPlace().getTokens(), "Activer should have reduced tokens in the second incoming arc.");
+        assertEquals(3, exitingArcs.get(0).getPlace().getTokens(), "Activer should have added tokens to the outgoing arc.");
     }
 
 
     @Test
-    public void testActiverWhenNotAllTirable() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
-        arcsEntrant.add(new Arc(4, new Place(2), transition));
-        arcsEntrant.add(new Arc(3, new Place(5), transition));
+    public void testActivateWhenNotAllTirable() {
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
+        enteringArcs.add(new Arc(4, new Place(2), transition));
+        enteringArcs.add(new Arc(3, new Place(5), transition));
 
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(2, new Place(0), transition));
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(2, new Place(0), transition));
 
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
+        transition.setEnteringArcs(enteringArcs);
+        transition.setExitingArcs(exitingArcs);
 
-        transition.Activer();
+        transition.activate();
 
-        assertEquals(2, arcsEntrant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the first incoming arc.");
-        assertEquals(5, arcsEntrant.get(1).getPlace().getNb_Jetons(), "Activer should not change tokens in the second incoming arc.");
-        assertEquals(0, arcsSortant.get(0).getPlace().getNb_Jetons(), "Activer should not change tokens in the outgoing arc.");
+        assertEquals(2, enteringArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the first incoming arc.");
+        assertEquals(5, enteringArcs.get(1).getPlace().getTokens(), "Activer should not change tokens in the second incoming arc.");
+        assertEquals(0, exitingArcs.get(0).getPlace().getTokens(), "Activer should not change tokens in the outgoing arc.");
     }
 
     @Test
-    public void testActiverAvecArcDoublésDePoidsCombinésSupérieursAuxJetons() {
-        ArrayList<Arc> arcsEntrant = new ArrayList<>();
+    public void testActivateForDoubledArcs() {
+        ArrayList<Arc> enteringArcs = new ArrayList<>();
         Place place = new Place(3);
-        arcsEntrant.add(new Arc(2, place, transition));
-        arcsEntrant.add(new Arc(2, place, transition));
+        enteringArcs.add(new Arc(2, place, transition));
+        enteringArcs.add(new Arc(2, place, transition));
 
-        ArrayList<Arc> arcsSortant = new ArrayList<>();
-        arcsSortant.add(new Arc(2, new Place(0), transition));
+        ArrayList<Arc> exitingArcs = new ArrayList<>();
+        exitingArcs.add(new Arc(2, new Place(0), transition));
 
-        transition.setArcs_entrant(arcsEntrant);
-        transition.setArcs_sortant(arcsSortant);
+        transition.setEnteringArcs(enteringArcs);
+        transition.setExitingArcs(exitingArcs);
 
-        transition.Activer();
+        transition.activate();
 
-        assertEquals(0, arcsEntrant.get(0).getPlace().getNb_Jetons());
-        assertEquals(2, arcsSortant.get(0).getPlace().getNb_Jetons());
+        assertEquals(0, enteringArcs.get(0).getPlace().getTokens());
+        assertEquals(2, exitingArcs.get(0).getPlace().getTokens());
     }
 
 
