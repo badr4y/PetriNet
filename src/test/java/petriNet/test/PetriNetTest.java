@@ -88,5 +88,13 @@ public class PetriNetTest {
         assertFalse(transitions.contains(transition), "Supprimer_transition should remove the transition from the list of transitions.");
     }
 
+    @Test
+    void testFireWhenTransitionFirable() {
+
+    }
+
+    @Test
+    void testFireWhenNotTransitionFirable() {
+    }
 }
 
