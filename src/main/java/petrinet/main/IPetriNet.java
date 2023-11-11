@@ -1,5 +1,7 @@
 package petrinet.main;
 
+import petrinet.exceptions.NullTransitionException;
+
 public interface IPetriNet {
     void addArc(Arc arc);
     void addPlace(Place place);
@@ -9,7 +11,7 @@ public interface IPetriNet {
     void deleteTransition(Transition transition);
     void deletePlace(Place place);
 
-    void fire(Transition transition);
+    void fire(Transition transition) throws NullTransitionException;
 
 
 }

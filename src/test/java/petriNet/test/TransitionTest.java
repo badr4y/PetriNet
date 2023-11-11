@@ -1,11 +1,12 @@
-package PetriNet.test;
+package petrinet.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import PetriNet.main.*;
+import petrinet.exceptions.NullTransitionException;
+import petrinet.main.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,20 +60,20 @@ public class TransitionTest {
 
     @Test
     public void testActivateForDefaultTransition() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(NullTransitionException.class, () -> {
             // Call the Activer method on a null Transition object
             transition.activate();
         });
     }
 
     @Test
-    public void testActivateWithEmptyArcLists() {
+    public void testActivateWithEmptyArcLists() throws NullTransitionException {
         transition = new Transition(new ArrayList<Arc>(),new ArrayList<Arc>()) ;
         transition.activate();
     }
 
     @Test
-    public void testActivateCase1() {
+    public void testActivateCase1() throws NullTransitionException {
         ArrayList<Arc> enteringArcs = new ArrayList<>();
         enteringArcs.add(new Arc(0, new Place(2), transition));
 
@@ -91,7 +92,7 @@ public class TransitionTest {
 
 
     @Test
-    public void testActivateCase2() {
+    public void testActivateCase2() throws NullTransitionException {
         ArrayList<Arc> enteringArcs = new ArrayList<>();
         enteringArcs.add(new Arc(0, new Place(0), transition));
 
@@ -108,7 +109,7 @@ public class TransitionTest {
     }
 
     @Test
-    public void testActivateCase3() {
+    public void testActivateCase3() throws NullTransitionException {
         ArrayList<Arc> enteringArcs = new ArrayList<>();
         enteringArcs.add(new ArcVideur(new Place(5), transition));
 
@@ -125,7 +126,7 @@ public class TransitionTest {
     }
 
     @Test
-    public void testActivateCase4() {
+    public void testActivateCase4() throws NullTransitionException {
         ArrayList<Arc> arcsEntrant = new ArrayList<>();
         arcsEntrant.add(new ArcVideur(new Place(0), transition));
 
@@ -142,7 +143,7 @@ public class TransitionTest {
     }
 
     @Test
-    public void testActivateCase5() {
+    public void testActivateCase5() throws NullTransitionException {
         ArrayList<Arc> enteringArcs = new ArrayList<>();
         enteringArcs.add(new ArcZero(new Place(0), transition));
 
@@ -159,7 +160,7 @@ public class TransitionTest {
     }
 
     @Test
-    public void testActivateCase6() {
+    public void testActivateCase6() throws NullTransitionException {
         ArrayList<Arc> enteringArcs = new ArrayList<>();
         enteringArcs.add(new ArcZero(new Place(4), transition));
 
@@ -177,7 +178,7 @@ public class TransitionTest {
 
 
     @Test
-    public void testActivateWhenAllTirable() {
+    public void testActivateWhenAllTirable() throws NullTransitionException {
         List<Arc> enteringArcs = new ArrayList<>();
         enteringArcs.add(new Arc(2, new Place(3), transition));
         enteringArcs.add(new Arc(1, new Place(4), transition));
@@ -197,7 +198,7 @@ public class TransitionTest {
 
 
     @Test
-    public void testActivateWhenNotAllTirable() {
+    public void testActivateWhenNotAllTirable() throws NullTransitionException {
         ArrayList<Arc> enteringArcs = new ArrayList<>();
         enteringArcs.add(new Arc(4, new Place(2), transition));
         enteringArcs.add(new Arc(3, new Place(5), transition));
@@ -216,7 +217,7 @@ public class TransitionTest {
     }
 
     @Test
-    public void testActivateForDoubledArcs() {
+    public void testActivateForDoubledArcs() throws NullTransitionException {
         ArrayList<Arc> enteringArcs = new ArrayList<>();
         Place place = new Place(3);
         enteringArcs.add(new Arc(2, place, transition));

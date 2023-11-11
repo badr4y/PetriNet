@@ -1,10 +1,10 @@
-package PetriNet.test;
+package petrinet.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import PetriNet.main.ArcVideur;
-import PetriNet.main.Place;
-import PetriNet.main.Transition;
+import petrinet.main.ArcVideur;
+import petrinet.main.Place;
+import petrinet.main.Transition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

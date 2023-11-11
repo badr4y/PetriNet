@@ -1,5 +1,7 @@
 package petrinet.main;
 
+import petrinet.exceptions.NullTransitionException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,16 +57,19 @@ public class Transition {
 	/**
 	 * activates a transition
 	 */
-	public boolean activate() {
-		boolean drawable = true;
+	public boolean activate() throws NullTransitionException {
+		if (this.enteringArcs == null || this.exitingArcs==null) {
+			throw new NullTransitionException();
+		}
+		boolean firable = true;
 
         for (Arc enteringArc : enteringArcs) {
             if (!enteringArc.firable()) {
-                drawable = false;
+                firable = false;
                 break;
             }
         }
-		if (drawable) {
+		if (firable) {
             for (Arc enteringArc : enteringArcs) {
                 enteringArc.retrieveTokens();
             }
@@ -72,6 +77,6 @@ public class Transition {
                 exitingArc.addTokens();
             }
 		}
-		return drawable;
+		return firable;
 	}
 }

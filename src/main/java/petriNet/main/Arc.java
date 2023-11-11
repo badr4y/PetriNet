@@ -1,4 +1,4 @@
-package PetriNet.main;
+package petrinet.main;
 
 public class Arc {
     private int weight;

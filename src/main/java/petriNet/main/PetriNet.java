@@ -1,4 +1,6 @@
-package PetriNet.main;
+package petrinet.main;
+
+import petrinet.exceptions.NullTransitionException;
 
 import java.util.List;
 
@@ -90,7 +92,7 @@ public class PetriNet implements IPetriNet {
      * @param transition
      */
     @Override
-    public void fire(Transition transition) {
+    public void fire(Transition transition) throws NullTransitionException {
         boolean response = transition.activate();
         if (response) {
             System.out.println("transition was fired");

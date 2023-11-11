@@ -1,12 +1,12 @@
-package PetriNet.test;
+package petrinet.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import PetriNet.main.ArcZero;
-import PetriNet.main.Place;
-import PetriNet.main.Transition;
+import petrinet.main.ArcZero;
+import petrinet.main.Place;
+import petrinet.main.Transition;
 
 public class ArcZeroTest {
     private ArcZero arcZero;

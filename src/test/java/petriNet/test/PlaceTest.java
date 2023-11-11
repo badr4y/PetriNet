@@ -1,11 +1,11 @@
-package PetriNet.test;
+package petrinet.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import PetriNet.main.Place;
+import petrinet.main.Place;
 
 public class PlaceTest {
     private Place place;

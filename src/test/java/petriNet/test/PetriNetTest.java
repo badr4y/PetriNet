@@ -1,4 +1,4 @@
-package PetriNet.test;
+package petrinet.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import PetriNet.main.Arc;
-import PetriNet.main.PetriNet;
-import PetriNet.main.Place;
-import PetriNet.main.Transition;
+import petrinet.main.Arc;
+import petrinet.main.PetriNet;
+import petrinet.main.Place;
+import petrinet.main.Transition;
 
 public class PetriNetTest {
     private PetriNet petriNet;
