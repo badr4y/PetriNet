@@ -1,28 +1,28 @@
 public class Place {
-	private int nb_jetons;
+	private int tokens;
 
 	public Place() {
-		nb_jetons =0;
+		tokens =0;
 	}
 
 	public Place(int n) {
 		if(n<0) {
-			nb_jetons = 0;
+			tokens = 0;
 		} else {
-			nb_jetons = n;
+			tokens = n;
 		}
 	}
-	public void Modifier_jetons(int m) {
+	public void changeTokens(int m) {
 		if(m<0) {
-			nb_jetons = 0;
+			tokens = 0;
 		} else {
-			nb_jetons = m;
+			tokens = m;
 		}
 	}
-	public int getNb_Jetons() {
-		return nb_jetons;
+	public int getTokens() {
+		return tokens;
 	}
-	public void setNb_Jetons(int m) {
-		nb_jetons = m;
+	public void setTokens(int m) {
+		tokens = m;
 	}
 }
