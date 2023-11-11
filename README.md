@@ -16,8 +16,7 @@ Le schéma qui suit montre un réseau de Petri avant que la transition soit tir�
 ![petri.png](petri.png)
 
 ## Système
-通过UML（统一建模语言），实现了一个可以创建Petri网络的系统，可以添加或删除place，transition和arc，也可以获得修改它们的属性或者他们的信息，同时也提供了activer整个系统的方法。
-
+À travers l'UML (Langage de Modélisation Unifié), un système a été implémenté qui permet de créer un réseau de Petri. Il est possible d'ajouter ou de supprimer des places, des transitions et des arcs, ainsi que de modifier leurs attributs ou d'obtenir des informations sur eux. Le système fournit également une méthode pour activer l'ensemble du système.
 ## Les codes et UMLs
 Dans le code réel, nous avons remplacé les attributs et les méthodes de chaque classe par des noms en anglais.
 
