@@ -1,6 +1,12 @@
+package PetriNet.test;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import PetriNet.main.ArcZero;
+import PetriNet.main.Place;
+import PetriNet.main.Transition;
 
 public class ArcZeroTest {
     private ArcZero arcZero;
@@ -26,14 +32,14 @@ public class ArcZeroTest {
     }
 
     @Test
-    public void testDrawableWhenPlaceIsEmpty() {
-        assertTrue(arcZero.drawable(), "Arc_zero should be tirable when the associated place is empty.");
+    public void testFirableWhenPlaceIsEmpty() {
+        assertTrue(arcZero.firable(), "Arc_zero should be tirable when the associated place is empty.");
     }
 
     @Test
-    public void testDrawableWhenPlaceHasTokens() {
+    public void testFirableWhenPlaceHasTokens() {
         place.setTokens(3); // Set the number of tokens in the Place to 3.
-        assertFalse(arcZero.drawable(), "Arc_zero should not be tirable when the associated place has tokens.");
+        assertFalse(arcZero.firable(), "Arc_zero should not be tirable when the associated place has tokens.");
     }
 
     @Test

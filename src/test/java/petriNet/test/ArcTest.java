@@ -1,6 +1,11 @@
+package PetriNet.test;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import PetriNet.main.Arc;
+import PetriNet.main.Place;
+import PetriNet.main.Transition;
 
 public class ArcTest {
     private Arc arc;
@@ -28,14 +33,14 @@ public class ArcTest {
 
 
     @Test
-    public void testDrawableWhenTrue() {
-        assertTrue(arc.drawable(), "Tirable should return true when the number of tokens in the Place is more than or equal to the weight.");
+    public void testFirableWhenTrue() {
+        assertTrue(arc.firable(), "Tirable should return true when the number of tokens in the Place is more than or equal to the weight.");
     }
 
     @Test
-    public void testDrawableWhenFalse() {
+    public void testFirableWhenFalse() {
         place.setTokens(2); // Set the number of tokens in the Place to 8.
-        assertFalse(arc.drawable(), "Tirable should return false when the number of tokens in the Place is inferior the weight.");
+        assertFalse(arc.firable(), "Tirable should return false when the number of tokens in the Place is inferior the weight.");
     }
 
     @Test

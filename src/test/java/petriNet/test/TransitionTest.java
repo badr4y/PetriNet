@@ -1,6 +1,11 @@
+package PetriNet.test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import PetriNet.main.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +21,8 @@ public class TransitionTest {
     @Test
     public void testDefaultConstructor() {
         assertNotNull(transition);
-        assertNull(transition.getEnteringArcs(), "Default constructor should set incoming arcs to null.");
-        assertNull(transition.getExitingArcs(), "Default constructor should set outgoing arcs to null.");
+        Assertions.assertNull(transition.getEnteringArcs(), "Default constructor should set incoming arcs to null.");
+        Assertions.assertNull(transition.getExitingArcs(), "Default constructor should set outgoing arcs to null.");
     }
 
     @Test
@@ -48,8 +53,8 @@ public class TransitionTest {
 
         transition = new Transition(enteringArcs, arcsSortant);
         assertNotNull(transition);
-        assertEquals(enteringArcs, transition.getEnteringArcs(), "Parameterized constructor should set incoming arcs.");
-        assertEquals(arcsSortant, transition.getExitingArcs(), "Parameterized constructor should set outgoing arcs.");
+        Assertions.assertEquals(enteringArcs, transition.getEnteringArcs(), "Parameterized constructor should set incoming arcs.");
+        Assertions.assertEquals(arcsSortant, transition.getExitingArcs(), "Parameterized constructor should set outgoing arcs.");
     }
 
     @Test

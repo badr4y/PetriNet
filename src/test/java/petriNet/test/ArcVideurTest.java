@@ -1,4 +1,10 @@
+package PetriNet.test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import PetriNet.main.ArcVideur;
+import PetriNet.main.Place;
+import PetriNet.main.Transition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,14 +34,14 @@ public class ArcVideurTest {
     }
 
     @Test
-    public void testDrawableWhenPlaceHasTokens() {
-        assertTrue(arcVideur.drawable(), "Arc_videur should be tirable when the associated place has tokens.");
+    public void testFirableWhenPlaceHasTokens() {
+        assertTrue(arcVideur.firable(), "Arc_videur should be tirable when the associated place has tokens.");
     }
 
     @Test
-    public void testDrawableWhenPlaceIsEmpty() {
+    public void testFirableWhenPlaceIsEmpty() {
         place.setTokens(0); // Set the number of tokens in the Place to 0.
-        assertFalse(arcVideur.drawable(), "Arc_videur should not be tirable when the associated place is empty.");
+        assertFalse(arcVideur.firable(), "Arc_videur should not be tirable when the associated place is empty.");
     }
 
     @Test

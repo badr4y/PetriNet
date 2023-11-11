@@ -1,6 +1,11 @@
+package PetriNet.test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import PetriNet.main.Place;
 
 public class PlaceTest {
     private Place place;
@@ -24,19 +29,19 @@ public class PlaceTest {
     @Test
     public void testChangeTokens() {
         place.changeTokens(10); // Modify the number of tokens to 10.
-        assertEquals(10, place.getTokens(), "Modifier_jetons should update the number of tokens.");
+        Assertions.assertEquals(10, place.getTokens(), "Modifier_jetons should update the number of tokens.");
     }
 
     @Test
     public void testChangeTokensWithNegativeNumber() {
         place.changeTokens(-5);
-        assertEquals(0, place.getTokens());
+        Assertions.assertEquals(0, place.getTokens());
     }
 
     @Test
     public void testSetTokens() {
         place.setTokens(7); // Set the number of tokens to 7.
-        assertEquals(7, place.getTokens(), "setNbJetons should set the number of tokens.");
+        Assertions.assertEquals(7, place.getTokens(), "setNbJetons should set the number of tokens.");
     }
 
 
