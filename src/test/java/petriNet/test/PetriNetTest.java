@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import petrinet.exceptions.NullTransitionException;
 import petrinet.main.Arc;
 import petrinet.main.PetriNet;
 import petrinet.main.Place;
@@ -89,12 +90,41 @@ public class PetriNetTest {
     }
 
     @Test
-    void testFireWhenTransitionFirable() {
+    void testFireWhenTransitionFirable() throws NullTransitionException {
+        Place place1 = new Place(3);
+        Place place2 = new Place();
+        Transition transition = new Transition(new ArrayList<>(),new ArrayList<>());
+        Arc arc1 = new Arc(2,place1,transition);
+        Arc arc2 = new Arc(3, place2, transition);
+        transition.getEnteringArcs().add(arc1);
+        transition.getExitingArcs().add(arc2);
 
+        petriNet.addArc(arc1);
+        petriNet.addArc(arc2);
+
+        petriNet.fire(transition);
+
+        assertEquals(1,place1.getTokens());
+        assertEquals(3,place2.getTokens());
     }
 
     @Test
-    void testFireWhenNotTransitionFirable() {
+    void testFireWhenTransitionNotFirable() throws NullTransitionException {
+        Place place1 = new Place(3);
+        Place place2 = new Place();
+        Transition transition = new Transition(new ArrayList<>(),new ArrayList<>());
+        Arc arc1 = new Arc(5,place1,transition);
+        Arc arc2 = new Arc(3, place2, transition);
+        transition.getEnteringArcs().add(arc1);
+        transition.getExitingArcs().add(arc2);
+
+        petriNet.addArc(arc1);
+        petriNet.addArc(arc2);
+
+        petriNet.fire(transition);
+
+        assertEquals(3,place1.getTokens());
+        assertEquals(0,place2.getTokens());
     }
 }
 
