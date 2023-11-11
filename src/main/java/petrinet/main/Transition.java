@@ -1,4 +1,4 @@
-package PetriNet.main;
+package petrinet.main;
 
 import java.util.ArrayList;
 import java.util.List;

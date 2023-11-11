@@ -1,4 +1,4 @@
-package PetriNet.main;
+package petrinet.main;
 
 public interface IPetriNet {
     void addArc(Arc arc);
