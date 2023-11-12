@@ -20,6 +20,7 @@ In this project, you can create Petri Nets, define places, transitions, and arcs
 
 Make sure you have the following prerequisites installed:
 - Java Development Kit (JDK) - Version 17
+- JUnit (for the test)
 - Maven - Version 4.0.0 (Optional, if you want to use Maven for building and dependency management)
 
 ### Installation
@@ -72,13 +73,15 @@ Example :
 ```
 
 ## Testing
-This project uses JUnit Jupiter for testing. You can run the tests using the following command:
+This project uses JUnit Jupiter for testing. For each specific class, we have conducted unit tests, and we have also verified different boundary conditions.
+
+You can run the tests using the following command:
 ```
 mvn clean test
 ```
 
 ## Comparison between the initial conception and the current one
-- The first difference is that we translated the code to english, the names of the methods and variables are all in english now.   
+- The first difference is that we translated the code to english, the names of the methods and variables, and the comments are all in english now.   
 - We added getters to a number of attributes in different classes for their use in unit testing.  
 - The method activate() in the class Transition that initially didn't have a return type now returns a boolean that returns true if the transition was activated and was thus firable and false if not.  
 - We added the step() method for PetriNet class that fires all the transitions possible.  
