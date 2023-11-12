@@ -61,10 +61,10 @@ Example :
 ```
 /PetriNet
   ├── src/                     # Source code directory
-    ├── main/                  # Main source code
+    ├── main/java/             # Main source code
       ├── petrinet.exceptions  # Package for PetriNet exception classes
       ├── petrinet.main        # Package for main PetriNet application classes
-    ├── test/                  # Test source code
+    ├── test/java/             # Test source code
       ├── petrinet.test        # Package for PetriNet test classes
   ├── .gitignore               # Git configuration file specifying files and directories to ignore
   ├── pom.xml                  # Maven configuration file for managing the project
