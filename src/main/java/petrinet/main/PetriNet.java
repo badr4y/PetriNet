@@ -88,16 +88,28 @@ public class PetriNet implements IPetriNet {
     }
 
     /**
-     * fire a transition
-     * @param transition
+     * fires a transition
+     * displays in the terminal a message informing if the transition was fired
+     * @param transition is distinguished by its index in the transitions list which represents the order in which it was added to the PetriNet
      */
     @Override
     public void fire(Transition transition) throws NullTransitionException {
         boolean response = transition.activate();
         if (response) {
-            System.out.println("transition was fired");
+            System.out.println("transition "+transitions.indexOf(transition)+" was fired");
         } else {
-            System.out.println("transition is not firable");
+            System.out.println("transition "+transitions.indexOf(transition)+" is not firable");
+        }
+    }
+
+    /**
+     *
+     * @throws NullTransitionException
+     */
+    @Override
+    public void step() throws NullTransitionException {
+        for (Transition transition : transitions) {
+            fire(transition);
         }
     }
 

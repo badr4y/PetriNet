@@ -12,6 +12,7 @@ public interface IPetriNet {
     void deletePlace(Place place);
 
     void fire(Transition transition) throws NullTransitionException;
+    void step() throws NullTransitionException;
 
 
 }

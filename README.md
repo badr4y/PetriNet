@@ -1,37 +1,78 @@
-***Groupe A- Binôme 6***
+# PetriNet Java Project
+PetriNet is a Java project that implements a simulation of a Petri Network.  
+Petri Networks are mathematical modeling languages used for the description and analysis of systems.  
+In this project, you can create Petri Nets, define places, transitions, and arcs, and simulate the dynamic behavior of the system.
 
 
-## PetriNet
-Un réseau de Petri est composé de places (représentées par des cercles) qui peuvent contenir des
-jetons et de transitions (représentées par des carrés). Des arcs (porteurs d’une valeur) relient
-les places aux transitions (arcs sortants des places) et les transitions aux places (arcs entrants
-dans des places). Sans précision, la valeur d’un arc est par défaut 1.
-Une transition est tirable lorsque les places qui y sont reliées par un arc entrant contiennent au
-moins autant de jetons qu’indiqué par la valeur de l’arc. Quand une transition est tirée (un pas),
-on enlève des jetons des places en amont de la transition selon les indications des arcs sortants
-(des places) et on ajoute des jetons dans les places en aval selon les indications des arcs y entrants.
-Le nombre total de jetons peut donc changer d’un pas à l’autre.
-Le schéma qui suit montre un réseau de Petri avant que la transition soit tirée et après qu’elle a
-été tirée.
-![petri.png](petri.png)
+## Table of Contents
 
-## Système
-À travers l'UML (Langage de Modélisation Unifié), un système a été implémenté qui permet de créer un réseau de Petri. Il est possible d'ajouter ou de supprimer des places, des transitions et des arcs, ainsi que de modifier leurs attributs ou d'obtenir des informations sur eux. Le système fournit également une méthode pour activer l'ensemble du système.
-## Les codes et UMLs
-Dans le code réel, nous avons remplacé les attributs et les méthodes de chaque classe par des noms en anglais.
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Testing](#testing)
+- [License](#license)
 
-Le code implémente toutes les méthodes de chaque classe présentes dans le diagramme de classes, et les relations entre les classes sont également reflétées dans le code : par exemple, PetriNet implémente concrètement les méthodes définies dans l'interface IPetriNet, et Arc_videur ainsi qu'Arc_zero héritent tous deux de la classe Arc.
+## Getting Started
 
-![class diagram.png](class%20diagram.png)
+### Prerequisites
 
+Make sure you have the following prerequisites installed:
+- Java Development Kit (JDK) - Version 17
+- Maven - Version 4.0.0 (Optional, if you want to use Maven for building and dependency management)
 
-## Test
-Junit a été utilisé comme outil de test. Pour chaque classe spécifique, des tests unitaires ont été effectués dans ./src/test et peuvent être exécutés indépendamment. Des vérifications ont également été effectuées pour différents cas limites.
+### Installation
 
+1. Clone the repository:
+```bash
+   git clone https://github.com/badr4y/PetriNet.git 
+   cd PetriNet
+   mvn clean install
+```
 
-## main.java
-Dans main.java, un réseau Petri a été conçu. En l'exécutant, vous pouvez obtenir un exemple réel de PetriNet.
+## Usage
+Utilize the classes and interfaces within this project to model and simulate systems using Petri Networks. Begin by instancing a PetriNet and subsequently incorporating places, transitions, and arcs. Simulate the system's behavior by either firing a specific transition or executing a step that triggers all firable transitions in the Petri Network.
 
-## Clone
-Cloner ce dépôt sur votre machine locale :
-git clone https://github.com/badr4y/PetriNet.git
+Upon exploring the code, you'll discover various methods for creating a complete Petri Network, catering to the user's preferences. However, we recommend the following ideal sequence:
+
+- First, create lists for arcs, transitions, and places.
+- Next, construct the PetriNet using its parametrized constructor, passing the aforementioned lists as parameters.
+- Subsequently, create places, followed by transitions, and finally arcs.
+Associate the arcs with the transitions.
+- Lastly, add the arcs to the PetriNet, which will automatically include the associated places and transitions.
+
+This structured approach ensures a coherent setup of the Petri Network, aligning with best practices."
+
+Example :  
+```example
+   Place place1 = new Place(3);
+   Place place2 = new Place();
+   Transition transition = new Transition(new ArrayList<>(),new ArrayList<>());
+   Arc arc1 = new Arc(2,place1,transition);
+   Arc arc2 = new Arc(3, place2, transition);
+   transition.getEnteringArcs().add(arc1);
+   transition.getExitingArcs().add(arc2);
+   petriNet.addArc(arc1);
+   petriNet.addArc(arc2);
+```
+
+## Project Structure
+```
+/PetriNet
+  ├── src/                     # Source code directory
+    ├── main/                  # Main source code
+      ├── petrinet.exceptions  # Package for PetriNet exception classes
+      ├── petrinet.main        # Package for main PetriNet application classes
+    ├── test/                  # Test source code
+      ├── petrinet.test        # Package for PetriNet test classes
+  ├── .gitignore               # Git configuration file specifying files and directories to ignore
+  ├── pom.xml                  # Maven configuration file for managing the project
+  └── README.md                # Documentation file providing an overview of the project
+```
+
+## Testing
+This project uses JUnit Jupiter for testing. You can run the tests using the following command:
+```
+mvn clean test
+```
