@@ -12,7 +12,7 @@ In this project, you can create Petri Nets, define places, transitions, and arcs
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Testing](#testing)
-- [License](#license)
+- [Comparison between the initial conception and the current one](#conception)
 
 ## Getting Started
 
@@ -76,3 +76,17 @@ This project uses JUnit Jupiter for testing. You can run the tests using the fol
 ```
 mvn clean test
 ```
+
+## Comparison between the initial conception and the current one
+- The first difference is that we translated the code to english, the names of the methods and variables are all in english now.   
+- We added getters to a number of attributes in different classes for their use in unit testing.  
+- The method activate() in the class Transition that initially didn't have a return type now returns a boolean that returns true if the transition was activated and was thus firable and false if not.  
+- We added the step() method for PetriNet class that fires all the transitions possible.  
+- We overrode the retrieveTokens() method for the ArcZero class. Not overriding it was a mistake in the initial conception.  
+
+This is the final UML class diagram :
+
+![classDiagram.png](classDiagram.png)
+
+
+
