@@ -1,7 +1,7 @@
 # PetriNet Java Project
 PetriNet is a Java project that implements a simulation of a Petri Network.  
 Petri Networks are mathematical modeling languages used for the description and analysis of systems.  
-In this project, you can create Petri Nets, define places, transitions, and arcs, and simulate the dynamic behavior of the system.
+In this project, you can create Petri Nets, define places, transitions, and arcs(including special arcs).You can modify their properties and relationships, and also simulate the dynamic behavior of the system.
 
 
 ## Table of Contents
@@ -19,7 +19,8 @@ In this project, you can create Petri Nets, define places, transitions, and arcs
 ### Prerequisites
 
 Make sure you have the following prerequisites installed:
-- Java Development Kit (JDK) - Version 17
+- Java Development Kit (JDK) - Version 17 （https://www.oracle.com/java/technologies/downloads/#java17)
+- JUnit (for the test) (http://www.junit.org/)
 - Maven - Version 4.0.0 (Optional, if you want to use Maven for building and dependency management)
 
 ### Installation
@@ -45,7 +46,7 @@ Associate the arcs with the transitions.
 This structured approach ensures a coherent setup of the Petri Network, aligning with best practices."
 
 Example :  
-```example
+```java
    Place place1 = new Place(3);
    Place place2 = new Place();
    Transition transition = new Transition(new ArrayList<>(),new ArrayList<>());
@@ -72,21 +73,26 @@ Example :
 ```
 
 ## Testing
-This project uses JUnit Jupiter for testing. You can run the tests using the following command:
+This project uses JUnit Jupiter for testing. For each specific class, we have conducted unit tests, and we have also verified different boundary conditions.
+
+You can run the tests using the following command:
 ```
 mvn clean test
 ```
-
+In case of test failures, check the stack trace for any assertions or exceptions that caused the test to fail. If further investigation is required, you may run the tests in verbose mode using `mvn -X test` to get more detailed output.
 ## Comparison between the initial conception and the current one
-- The first difference is that we translated the code to english, the names of the methods and variables are all in english now.   
+- The first difference is that we translated the code to english, the names of the methods and variables, and the comments are all in english now.   
 - We added getters to a number of attributes in different classes for their use in unit testing.  
 - The method activate() in the class Transition that initially didn't have a return type now returns a boolean that returns true if the transition was activated and was thus firable and false if not.  
 - We added the step() method for PetriNet class that fires all the transitions possible.  
 - We overrode the retrieveTokens() method for the ArcZero class. Not overriding it was a mistake in the initial conception.  
+- We improved the content of our class diagram.
 
 This is the final UML class diagram :
 
 ![classDiagram.png](classDiagram.png)
+
+(The relationships between classes are reflected in the code: for example, PetriNet implements methods defined in the interface IPetriNet, and Arc_videur and Arc_zero both inherit from Arc classes)
 
 
 
