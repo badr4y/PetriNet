@@ -1,7 +1,7 @@
 # PetriNet Java Project
 PetriNet is a Java project that implements a simulation of a Petri Network.  
 Petri Networks are mathematical modeling languages used for the description and analysis of systems.  
-In this project, you can create Petri Nets, define places, transitions, and arcs(including special arcs).You can modify their properties and relationships, and also simulate the dynamic behavior of the system.
+In this project, you can create Petri Nets, define places, transitions, and arcs(including special arcs such as ArcZero and ArcVideur).You can modify their properties and relationships, and also simulate the dynamic behavior of the system.
 
 
 ## Table of Contents
@@ -20,7 +20,7 @@ In this project, you can create Petri Nets, define places, transitions, and arcs
 
 Make sure you have the following prerequisites installed:
 - Java Development Kit (JDK) - Version 17 （https://www.oracle.com/java/technologies/downloads/#java17)
-- JUnit (for the test) (http://www.junit.org/)
+- JUnit 5 (for tests) (https://junit.org/junit5/)
 - Maven - Version 4.0.0 (Optional, if you want to use Maven for building and dependency management)
 
 ### Installation
@@ -46,7 +46,7 @@ Associate the arcs with the transitions.
 This structured approach ensures a coherent setup of the Petri Network, aligning with best practices."
 
 Example :  
-```java
+```
    Place place1 = new Place(3);
    Place place2 = new Place();
    Transition transition = new Transition(new ArrayList<>(),new ArrayList<>());
@@ -61,15 +61,15 @@ Example :
 ## Project Structure
 ```
 /PetriNet
-  ├── src/                     # Source code directory
-    ├── main/java/             # Main source code
-      ├── petrinet.exceptions  # Package for PetriNet exception classes
-      ├── petrinet.main        # Package for main PetriNet application classes
-    ├── test/java/             # Test source code
-      ├── petrinet.test        # Package for PetriNet test classes
-  ├── .gitignore               # Git configuration file specifying files and directories to ignore
-  ├── pom.xml                  # Maven configuration file for managing the project
-  └── README.md                # Documentation file providing an overview of the project
+  ├── src/                        # Source code directory
+    ├── main/java/                # Main source code
+      ├── petrinet.exceptions     # Package for PetriNet exception classes
+      ├── petrinet.main           # Package for main PetriNet application classes
+    ├── test/java/                # Test source code
+      ├── petrinet.test           # Package for PetriNet test classes
+  ├── .gitignore                  # Git configuration file specifying files and directories to ignore
+  ├── pom.xml                     # Maven configuration file for managing the project
+  └── README.md                   # Documentation file providing an overview of the project
 ```
 
 ## Testing
@@ -86,13 +86,10 @@ In case of test failures, check the stack trace for any assertions or exceptions
 - The method activate() in the class Transition that initially didn't have a return type now returns a boolean that returns true if the transition was activated and was thus firable and false if not.  
 - We added the step() method for PetriNet class that fires all the transitions possible.  
 - We overrode the retrieveTokens() method for the ArcZero class. Not overriding it was a mistake in the initial conception.  
-- We improved the content of our class diagram.
+- We defined a NullTransitionException that gets thrown if a null transition is activated.
 
 This is the final UML class diagram :
 
 ![classDiagram.png](classDiagram.png)
-
-(The relationships between classes are reflected in the code: for example, PetriNet implements methods defined in the interface IPetriNet, and Arc_videur and Arc_zero both inherit from Arc classes)
-
 
 
