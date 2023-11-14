@@ -1,4 +1,4 @@
-package petriNet.test;
+package petrinet.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -126,5 +126,45 @@ public class PetriNetTest {
         assertEquals(3,place1.getTokens());
         assertEquals(0,place2.getTokens());
     }
+
+    @Test
+    void testStepWhenThereIsFirableTransitions() throws NullTransitionException {
+        Place place1 = new Place(3);
+        Place place2 = new Place();
+        Transition transition = new Transition(new ArrayList<>(),new ArrayList<>());
+        Arc arc1 = new Arc(2,place1,transition);
+        Arc arc2 = new Arc(3, place2, transition);
+        transition.getEnteringArcs().add(arc1);
+        transition.getExitingArcs().add(arc2);
+
+        petriNet.addArc(arc1);
+        petriNet.addArc(arc2);
+
+        petriNet.step();
+
+        assertEquals(1,place1.getTokens());
+        assertEquals(3,place2.getTokens());
+    }
+
+    @Test
+    void testStepWhenThereIsNoFirableTransition() throws NullTransitionException {
+        Place place1 = new Place(3);
+        Place place2 = new Place();
+        Transition transition = new Transition(new ArrayList<>(),new ArrayList<>());
+        Arc arc1 = new Arc(5,place1,transition);
+        Arc arc2 = new Arc(3, place2, transition);
+        transition.getEnteringArcs().add(arc1);
+        transition.getExitingArcs().add(arc2);
+
+        petriNet.addArc(arc1);
+        petriNet.addArc(arc2);
+
+        petriNet.step();
+
+        assertEquals(3,place1.getTokens());
+        assertEquals(0,place2.getTokens());
+    }
+
+
 }
 
